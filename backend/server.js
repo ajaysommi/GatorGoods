@@ -1,4 +1,5 @@
 import express from 'express';
+import { MongoURL } from './config';
 
 const app = express();
 
@@ -10,6 +11,6 @@ app.get("/", (req, res) => {
 //current bug, url needs to be http instead of https (cant establish secure connection)
 app.listen(3000, () => {
     //test message to console indicating connection with port successful.
-    console.log("Test: server started at https://localhost:3000.");
+    console.log("Test: server started at http://localhost:3000.");
 
 })
