@@ -1,4 +1,5 @@
 import express from 'express'
+import Listing from '../models/Listings.js'
 
 const router = express.Router();
 
@@ -16,7 +17,12 @@ router.get('/:id', (req, res) => {
     res.send('Specific listing');
 })
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
+    const {name, cost, date} = req.body
+
+    try {
+        const listing = await Listing.create();
+    } catch(error){};
     res.send('post listing');
 })
 
