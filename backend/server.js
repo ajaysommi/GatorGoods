@@ -4,6 +4,12 @@ import mongoose from 'mongoose';
 
 const app = express();
 
+//middleware for logging messages in console
+app.use((req, res, next) =>{
+    console.log(req.path, req.method);
+    next();
+})
+
 //visiting initial splash page
 app.get("/", (req, res) => {
     try {
