@@ -1,11 +1,13 @@
 import express from 'express';
 import { MongoURL } from './config.js';
 import mongoose from 'mongoose';
+import listing_routes from './routes/listings.js'
 
 const app = express();
 
 //middleware for logging messages in console
-app.use((req, res, next) =>{
+app.use(express.json()); //gets data from request
+app.use((req, res, next) => {
     console.log(req.path, req.method);
     next();
 })
@@ -18,6 +20,9 @@ app.get("/", (req, res) => {
         console.error("Server not set up. Error: ", error);
     }
 })
+
+//listing routes
+app.use('/api/listings', listing_routes);
 
 
 mongoose.connect(MongoURL)
