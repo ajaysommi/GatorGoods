@@ -1,1 +1,2 @@
-export const MongoURL = "mongodb+srv://ajaysommi:5Q1e8zkzOmcuiVvn@gatorgoods.hm2wj.mongodb.net/marketplace-collection?retryWrites=true&w=majority&appName=GatorGoods";
+//export const MongoURL = "mongodb+srv://ajaysommi:5Q1e8zkzOmcuiVvn@gatorgoods.hm2wj.mongodb.net/marketplace-collection?retryWrites=true&w=majority&appName=GatorGoods";
+export const MongoURL = "mongodb+srv://aaronyoung:8WQWtnGSPAGb4quu@gatorgoods.hm2wj.mongodb.net/marketplace-collection?retryWrites=true&w=majority&appName=GatorGoods";
