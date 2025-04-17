@@ -1,4 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
+
+//pages
 import VerificationPage from './pages/Verification'
 import Listings from './pages/Listings'
 

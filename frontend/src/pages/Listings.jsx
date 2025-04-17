@@ -1,4 +1,7 @@
 import '../Listings.css';
+import {useEffect, useState} from 'react';
+
+//images
 import hoodieImage from '../images/hoodie.png';
 import crocs from '../images/crocs.png';
 import alternator from '../images/alternator.png';
@@ -32,6 +35,13 @@ function Listings() {
       title: "Heavy duty alternator",
       description: "Show your Gator pride with this heavy duty alternator! Perfect for late-night study sessions.",
       price: "$344",
+      image: alternator,
+    },
+    {
+      id: 5,
+      title: "Testing",
+      description: "testing",
+      price: "$999",
       image: alternator,
     },
   ];
