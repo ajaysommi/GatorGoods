@@ -7,44 +7,21 @@ import crocs from '../images/crocs.png';
 import alternator from '../images/alternator.png';
 import laptop from '../images/laptop.png';
 
-function Listings() {
-  const listings = [
-    {
-      id: 1,
-      title: "Gator Hoodie",
-      description: "Hoodie for our proud Gators!",
-      price: "$219",
-      image: hoodieImage,
-    },
-    {
-      id: 2,
-      title: "Laptop",
-      description: "Hard working Gators need a hard working laptop",
-      price: "$899",
-      image: laptop,
-    },
-    {
-      id: 3,
-      title: "Gator Crocs",
-      description: "You need these",
-      price: "$150",
-      image: crocs,
-    },
-    {
-      id: 4,
-      title: "Heavy duty alternator",
-      description: "Show your Gator pride with this heavy duty alternator! Perfect for late-night study sessions.",
-      price: "$344",
-      image: alternator,
-    },
-    {
-      id: 5,
-      title: "Testing",
-      description: "testing",
-      price: "$999",
-      image: alternator,
-    },
-  ];
+const Listings = () => {
+  //useState adds a functional component consisting of two values [var, func]
+  //var is the component itself while func is the setter function used to change it
+  const [listings, setListings] = useState([]); //initializes listings as an empty array
+  
+  useEffect(() => {
+    const fetchListings = async () => {
+      const response = await fetch('http://localhost:3000/api/listings');
+      const data = await response.json();
+
+      setListings(data);
+    }
+
+    fetchListings();
+  }, []); //useEffect(effect,dependencies)
 
   return (
     <div className="listings-page">
@@ -53,12 +30,12 @@ function Listings() {
 
       <div className="listings-container">
         {listings.map((listing) => (
-          <div className="listing-item" key={listing.id}>
-            <img src={listing.image} alt={listing.title} className="listing-image" />
+          <div className="listing-item" key={listing._id}>
+            <img src={`http://localhost:3000/api/listings/${listing._id}`} alt={listing.name} className="listing-image" />
             <div className="listing-info">
-              <h2>{listing.title}</h2>
+              <h2>{listing.name}</h2>
               <p>{listing.description}</p>
-              <p className="price">{listing.price}</p>
+              <p className="price">{listing.cost}</p>
               <div className="button-group">
                 <button className="view-btn">View</button>
                 <button className="report-btn">Report</button>

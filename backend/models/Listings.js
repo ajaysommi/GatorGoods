@@ -16,7 +16,11 @@ const listing_schema = new mongoose.Schema({
     date: {
         type: Date,
         default: Date.now,
-    }
+    },
+    image: {
+        data: Buffer,
+        contentType: String,
+    },
 }, {timestamps: true}
 )
 
