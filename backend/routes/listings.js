@@ -1,5 +1,11 @@
 import express from 'express'
-import Listing from '../models/Listings.js'
+import {
+    createListing,
+    getAll,
+    getListing,
+    deleteListing,
+} from '../controllers/listingsController.js'
+
 
 const router = express.Router();
 
@@ -9,29 +15,20 @@ router.use((req, res, next) => {
     next();
 })
 
-router.get('/', (req, res) => {
-    res.send('All listings');
-})
+router.get('/', getAll);
 
-router.get('/:id', (req, res) => {
-    res.send('Specific listing');
-})
+router.get('/:id', getListing);
 
-router.post('/', async (req, res) => {
-    const {name, cost, date} = req.body
+//post a listing to DB
+router.post('/', createListing);
 
-    try {
-        const listing = await Listing.create();
-    } catch(error){};
-    res.send('post listing');
-})
+router.delete('/:id', deleteListing)
 
-router.delete('/:id', (req, res) => {
-    res.send('delete listing');
-})
-
+//update listing isn't of high priority
+/*
 router.patch('/:id', (req, res) => {
     res.send('patch listing');
 })
+*/
 
 export default router;

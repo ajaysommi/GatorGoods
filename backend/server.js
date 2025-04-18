@@ -1,6 +1,7 @@
 import express from 'express';
 import { MongoURL } from './config.js';
 import mongoose from 'mongoose';
+import cors from 'cors'
 import listing_routes from './routes/listings.js'
 
 const app = express();
@@ -11,6 +12,13 @@ app.use((req, res, next) => {
     console.log(req.path, req.method);
     next();
 })
+
+
+app.use(cors({
+    origin: 'http://localhost:5173',  // Your frontend URL
+    methods: ['GET', 'POST', 'DELETE', 'PATCH'], // Allowed methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+  }));
 
 //visiting initial splash page
 app.get("/", (req, res) => {
