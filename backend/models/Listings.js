@@ -24,4 +24,6 @@ const listing_schema = new mongoose.Schema({
 }, {timestamps: true}
 )
 
-export default listing_schema;
+const Listing = mongoose.model('Listing', listing_schema);
+
+export default Listing; 
