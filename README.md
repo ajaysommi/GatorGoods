@@ -1,16 +1,40 @@
-# React + Vite
+# GatorGoods
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Setup Instructions
 
-Currently, two official plugins are available:
+### Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Node.js (v16.0.0 or later)
+- npm (comes with Node.js)
 
-## Expanding the ESLint configuration
+### Getting Started
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Clone the repository:**
 
+   ```bash
+   git clone https://github.com/yourusername/gatorgoods.git
+   cd gatorgoods
+   ```
 
-Notes:
-I want to add a navigation bar (create 'components' directory in frontend and create function that returns header)
+2. **Install the dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Start backend server:**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Start frontend server:**
+
+   ```bash
+   cd frontend/
+   npm run dev
+   ```
+
+## Conclusion
+
+You should now be able to add your listings to the server (mongodb) as well as remove listings (buy).
