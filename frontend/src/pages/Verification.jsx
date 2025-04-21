@@ -20,7 +20,7 @@ function AccountVerification(){
   }
 
   return(
-    <div className="app">
+    <div className="verification-page">
       <h1>GatorGoods Account Verification</h1>
       <form onSubmit={handleSubmit}>
         <input

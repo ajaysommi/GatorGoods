@@ -15,6 +15,10 @@ const Listings = () => {
     cost: '',
   });
 
+  const [searchTerm, setSearch] =useState('');
+  
+  const filteredListings = listings.filter(listing =>listing.name.toLowerCase().includes(searchTerm.toLowerCase()) || listing.description.toLowerCase().includes(searchTerm.toLowerCase()));
+
   useEffect(() => {
     const fetchListings = async () => {
       try {
@@ -95,6 +99,15 @@ const Listings = () => {
       <h1 className="gator-title">Welcome to GatorGoods!</h1>
       <p>You've successfully verified your account. Here are some items UF students love:</p>
 
+      <div className="search-bar-container">
+        <input
+          type="text"
+          placeholder="Search by item name"
+          value={searchTerm}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </div>
+
       <form onSubmit={handleSubmit} className="listing-form">
         <h2>Add a New Listing</h2>
         <input 
@@ -125,7 +138,7 @@ const Listings = () => {
       </form>
 
       <div className="listings-container">
-        {listings.map((listing) => (
+        {filteredListings.map((listing) => (
           <div className="listing-item" key={listing._id}>
             <img 
               src={`http://localhost:3000/api/listings/${listing._id}`} 
