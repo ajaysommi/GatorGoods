@@ -1,4 +1,5 @@
 import '../Listings.css';
+import Logo from '../images/logo.png';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,7 +9,7 @@ import hoodieImage from '../images/hoodie.png';
 import crocs from '../images/crocs.png';
 import alternator from '../images/alternator.png';
 import laptop from '../images/laptop.png';
-import placeholderlogo from '../images/placeholder.png'
+import placeholderlogo from '../images/placeholder1.png'
 
 const Listings = () => {
   const navigate = useNavigate();
@@ -110,7 +111,7 @@ const Listings = () => {
       </button>
       </div>
 
-      <h1 className="gator-title">Welcome to GatorGoods!</h1>
+      <img src={Logo} alt="GatorGoods Logo" className="gator-logo" />
       <p>You've successfully verified your account. Here are some items UF students love:</p>
 
       <div className="search-bar-container">
