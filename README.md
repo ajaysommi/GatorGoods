@@ -20,7 +20,6 @@
 
    ```bash
    npm install
-   npm install bcrypt
    ```
 
 3. **Start backend server:**
