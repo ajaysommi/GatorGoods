@@ -5,9 +5,9 @@ body {
   }
 
   .gator-logo {
-    width: 350px;
+    width: 400px;
     max-width: 80%;
-    margin-top: 50px;
+    margin-top: 90px;
     margin-bottom: 4px;
   }
   
@@ -126,7 +126,7 @@ body {
     color: white;
     border: 2px solid #ff4d4f;
     padding: 8px 14px;
-    margin-top: 90px;
+    margin-top: 130px;
     border-radius: 6px;
     cursor: pointer;
     font-weight: bold;
