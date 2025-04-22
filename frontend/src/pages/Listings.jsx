@@ -1,14 +1,19 @@
 import '../Listings.css';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 // images
 import hoodieImage from '../images/hoodie.png';
 import crocs from '../images/crocs.png';
 import alternator from '../images/alternator.png';
 import laptop from '../images/laptop.png';
+import placeholderlogo from '../images/placeholder.png'
 
 const Listings = () => {
+  const navigate = useNavigate();
   const [listings, setListings] = useState([]);
+  const [reportedListings, setReportedListings] = useState({});
   const [formData, setFormData] = useState({
     name: '',
     description: '',
@@ -90,10 +95,19 @@ const Listings = () => {
     }
   };
 
+  const handleReport = (id) => {
+    setReportedListings(prev => ({
+      ...prev,
+      [id]: true
+    }));
+  };
+
   return (
     <div className="listings-page">
       <div className="logout-container">
-        <button className="logout-btn">Logout</button>
+      <button className="logout-btn" onClick={() => navigate('/logout')}>
+        Logout
+      </button>
       </div>
 
       <h1 className="gator-title">Welcome to GatorGoods!</h1>
@@ -141,7 +155,7 @@ const Listings = () => {
         {filteredListings.map((listing) => (
           <div className="listing-item" key={listing._id}>
             <img 
-              src={`http://localhost:3000/api/listings/${listing._id}`} 
+              src={placeholderlogo} 
               alt={listing.name} 
               className="listing-image" 
             />
@@ -155,7 +169,16 @@ const Listings = () => {
                   onClick={() => handleDelete(listing._id)}>
                   Buy
                 </button>
-                <button className="report-btn">Report</button>
+                {reportedListings[listing._id] ? (
+                    <p style={{ color: '#ff4d4f', marginTop: '10px' }}>Reported. Thanks for the feedback!</p>
+                  ) : (
+                    <button
+                      className="report-btn"
+                      onClick={() => handleReport(listing._id)}
+                    >
+                      Report
+                    </button>
+                  )}
               </div>
             </div>
           </div>
